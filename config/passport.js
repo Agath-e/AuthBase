@@ -9,6 +9,8 @@ passport.use(new GoogleStrategy({
   }, (accessToken, refreshToken, profile, done) => {
   done(null, profile);
   }));
+
+
   
   // serialize user when saving to session
   passport.serializeUser((user, serialize) => {
