@@ -5,10 +5,11 @@ const hbs = require('express-handlebars');
 const passport = require('passport');
 const session = require('express-session');
 const passportSetup = require('./config/passport');
+const restify = require('restify');
 
 const app = express();
 
-
+app.use(restify.plugins.queryParser({ mapParams: false }));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({ secret: "key" }));
 app.use(passport.initialize());
